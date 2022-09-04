@@ -66,7 +66,7 @@ class NewsData {
     title = json['title'] != null ? json['title'].toString() : "";
     content = json['content'] != null ? json['content'].toString() : "";
     date = json['date'] != null ? json['date'].toString() : "";
-    imageUrl = json['image_url'] != null ? json['image_url'].toString() : "";
+    imageUrl = json['imageUrl'] != null ? json['imageUrl'].toString() : "";
 
   }
 
@@ -75,7 +75,7 @@ class NewsData {
     data['title'] = title;
     data['content'] = content;
     data['date'] = date;
-    data['image_url'] = imageUrl;
+    data['imageUrl'] = imageUrl;
     return data;
   }
 }
