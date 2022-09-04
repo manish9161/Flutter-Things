@@ -2,6 +2,7 @@
 
 -> Use Wrap instead of Row.
 
+```
 class LongStringWidget extends StatelessWidget {
   const LongStringWidget({Key? key}) : super(key: key);
 
@@ -23,6 +24,8 @@ class LongStringWidget extends StatelessWidget {
   }
 }
 
+```
+
 2. Write a function to call the below mentioned API and parse the data. Make sure the function return an object of News item, which contains News article Title,
    News article Content, Date of News Published, Banner Image of News article. https://inshorts.deta.dev/news?category=all
    
@@ -30,6 +33,7 @@ class LongStringWidget extends StatelessWidget {
 
 // Data Model
 
+```
 class NewsRes{
   List<NewsData>? newsList;
 
@@ -45,7 +49,10 @@ class NewsRes{
   }
 
 }
+```
 
+
+```
 class NewsData {
 
   String? title;
@@ -72,18 +79,19 @@ class NewsData {
     return data;
   }
 }
-  
+```  
 // Repository
-  
+
+```
 class NewsRepo {
   Future<NewsRes> newsListApi() async {
     final response = await ApiProvider().fetchNewsData();
     return NewsRes.fromJson(response);
   }
 }
-  
+```  
 // Api Provider
-  
+```  
 Future<dynamic> fetchNewsData() async {
     var responseJson;
     try {
@@ -98,12 +106,13 @@ Future<dynamic> fetchNewsData() async {
     }
     return responseJson;
 }  
-   
+```   
    
 3. Identify the problem in the following code block and correct it.   
 
 -> Used Isolate, It basically run in different thread, not lagging UI. Also, It also uses separate memory chunk.
 
+```
 Future<String> makeLongOperationMethod() async {
     return await compute(longOperationMethod, 1000000000);
 }
@@ -115,3 +124,4 @@ String longOperationMethod(int countTo) {
   }
   return '$counting! times I print the value!';
 }
+```
